@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+        <form action="#">
+
+            <button id="signout" class = btn style=" color:white; margin:150px auto ; align-items: center; display: block ;">Signout</button>
+        </form>
+</body>
+
+<script type="module" >  
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+    import { getAuth,signOut } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+    
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAhrF6Um19w9JUBbCO23P97eJ6m7b7dFl8",
+      authDomain: "login-auth-91784.firebaseapp.com",
+      projectId: "login-auth-91784",
+      storageBucket: "login-auth-91784.appspot.com",
+      messagingSenderId: "769884055566",
+      appId: "1:769884055566:web:d9c9b417489c6d6105745f",
+      measurementId: "G-DVSJHPRGGF"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+        
+
+        const auth = getAuth();
+
+        document.getElementById("signout").addEventListener("click" , ()=>{
+
+                        const auth = getAuth();
+            signOut(auth).then(() => {
+            // Sign-out successful.
+            location.href="/index.html"
+            }).catch((error) => {
+            // An error happened.
+            });
+        })
+       
+
+    </script>
+</html>
